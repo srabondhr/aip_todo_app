@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:analog_clock/analog_clock.dart';
 
-
 class DashboardScreen extends StatelessWidget {
   const DashboardScreen({super.key});
 
@@ -78,7 +77,7 @@ class DashboardScreen extends StatelessWidget {
                         ),
                       ),
                       const SizedBox(height: 16),
-                    
+
                       SizedBox(
                         width: 120,
                         height: 120,
@@ -92,6 +91,12 @@ class DashboardScreen extends StatelessWidget {
                           showNumbers: true,
                           showAllNumbers: true,
                           textScaleFactor: 1.2,
+                          decoration: BoxDecoration(
+                            color: Colors.white.withOpacity(
+                              0.3,
+                            ), // Faded white background
+                            shape: BoxShape.circle,
+                          ),
                         ),
                       ),
                     ],
@@ -113,7 +118,7 @@ class DashboardScreen extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20),
               child: Container(
-                height: 300, 
+                height: 300,
                 padding: const EdgeInsets.all(20),
                 decoration: BoxDecoration(
                   color: Colors.white,
@@ -151,31 +156,52 @@ class DashboardScreen extends StatelessWidget {
                       child: ListView(
                         children: const [
                           ListTile(
-                            leading: Icon(Icons.check_box_outline_blank, color: Colors.teal),
+                            leading: Icon(
+                              Icons.check_box_outline_blank,
+                              color: Colors.teal,
+                            ),
                             title: Text("Learning Programming by 12PM"),
                           ),
                           ListTile(
-                            leading: Icon(Icons.check_box_outline_blank, color: Colors.teal),
+                            leading: Icon(
+                              Icons.check_box_outline_blank,
+                              color: Colors.teal,
+                            ),
                             title: Text("Learn how to cook by 1PM"),
                           ),
                           ListTile(
-                            leading: Icon(Icons.check_box_outline_blank, color: Colors.teal),
+                            leading: Icon(
+                              Icons.check_box_outline_blank,
+                              color: Colors.teal,
+                            ),
                             title: Text("Learn how to play at 2PM"),
                           ),
                           ListTile(
-                            leading: Icon(Icons.check_box_outline_blank, color: Colors.teal),
+                            leading: Icon(
+                              Icons.check_box_outline_blank,
+                              color: Colors.teal,
+                            ),
                             title: Text("Have lunch at 4PM"),
                           ),
                           ListTile(
-                            leading: Icon(Icons.check_box_outline_blank, color: Colors.teal),
+                            leading: Icon(
+                              Icons.check_box_outline_blank,
+                              color: Colors.teal,
+                            ),
                             title: Text("Going to travel 6PM"),
                           ),
                           ListTile(
-                            leading: Icon(Icons.check_box_outline_blank, color: Colors.teal),
+                            leading: Icon(
+                              Icons.check_box_outline_blank,
+                              color: Colors.teal,
+                            ),
                             title: Text("Practice Flutter Widgets at 8PM"),
                           ),
                           ListTile(
-                            leading: Icon(Icons.check_box_outline_blank, color: Colors.teal),
+                            leading: Icon(
+                              Icons.check_box_outline_blank,
+                              color: Colors.teal,
+                            ),
                             title: Text("Read a book at 10PM"),
                           ),
                         ],
