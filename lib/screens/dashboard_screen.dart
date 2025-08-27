@@ -104,16 +104,16 @@ class DashboardScreen extends StatelessWidget {
 
             const Text(
               "Good Afternoon",
-              style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
+              style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
             ),
 
             const SizedBox(height: 20),
 
-            // Task List Section with independent scroll
+            // independent scroll
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20),
               child: Container(
-                height: 300, // 👈 fixed height so tasks scroll inside
+                height: 300, 
                 padding: const EdgeInsets.all(20),
                 decoration: BoxDecoration(
                   color: Colors.white,

@@ -8,7 +8,7 @@ class SplashScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: const Color(
         0xFFF4F8F7,
-      ), // light background same as screenshot
+      ),
       body: SafeArea(
         child: Stack(
           children: [
