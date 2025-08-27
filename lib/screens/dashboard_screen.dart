@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:analog_clock/analog_clock.dart';
+
 
 class DashboardScreen extends StatelessWidget {
   const DashboardScreen({super.key});
@@ -12,7 +14,7 @@ class DashboardScreen extends StatelessWidget {
           children: [
             // Top section
             Container(
-              height: 250,
+              height: 300,
               width: double.infinity,
               decoration: const BoxDecoration(
                 color: Color(0xFF42C9C9),
@@ -48,6 +50,7 @@ class DashboardScreen extends StatelessWidget {
                     ),
                   ),
 
+                  // Profile + Clock
                   Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
@@ -74,6 +77,23 @@ class DashboardScreen extends StatelessWidget {
                           color: Colors.white,
                         ),
                       ),
+                      const SizedBox(height: 16),
+                    
+                      SizedBox(
+                        width: 120,
+                        height: 120,
+                        child: AnalogClock(
+                          datetime: DateTime.now(),
+                          hourHandColor: Colors.white,
+                          minuteHandColor: Colors.white,
+                          secondHandColor: Colors.redAccent,
+                          numberColor: Colors.white,
+                          tickColor: Colors.white54,
+                          showNumbers: true,
+                          showAllNumbers: true,
+                          textScaleFactor: 1.2,
+                        ),
+                      ),
                     ],
                   ),
                 ],
@@ -89,87 +109,79 @@ class DashboardScreen extends StatelessWidget {
 
             const SizedBox(height: 20),
 
-            // Task List Section
-            Expanded(
-              child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20),
-                child: Container(
-                  padding: const EdgeInsets.all(20),
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(20),
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.black12,
-                        blurRadius: 10,
-                        offset: const Offset(0, 5),
-                      ),
-                    ],
-                  ),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      // Header row
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: const [
-                          Text(
-                            "Daily Task",
-                            style: TextStyle(
-                              fontSize: 16,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.black87,
-                            ),
+            // Task List Section with independent scroll
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20),
+              child: Container(
+                height: 300, // 👈 fixed height so tasks scroll inside
+                padding: const EdgeInsets.all(20),
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(20),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.black12,
+                      blurRadius: 10,
+                      offset: Offset(0, 5),
+                    ),
+                  ],
+                ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    // Header row
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: const [
+                        Text(
+                          "Daily Task",
+                          style: TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.black87,
                           ),
-                          Icon(Icons.add, color: Colors.teal),
+                        ),
+                        Icon(Icons.add, color: Colors.teal),
+                      ],
+                    ),
+                    const SizedBox(height: 10),
+
+                    // ✅ Scrollable Task List
+                    Expanded(
+                      child: ListView(
+                        children: const [
+                          ListTile(
+                            leading: Icon(Icons.check_box_outline_blank, color: Colors.teal),
+                            title: Text("Learning Programming by 12PM"),
+                          ),
+                          ListTile(
+                            leading: Icon(Icons.check_box_outline_blank, color: Colors.teal),
+                            title: Text("Learn how to cook by 1PM"),
+                          ),
+                          ListTile(
+                            leading: Icon(Icons.check_box_outline_blank, color: Colors.teal),
+                            title: Text("Learn how to play at 2PM"),
+                          ),
+                          ListTile(
+                            leading: Icon(Icons.check_box_outline_blank, color: Colors.teal),
+                            title: Text("Have lunch at 4PM"),
+                          ),
+                          ListTile(
+                            leading: Icon(Icons.check_box_outline_blank, color: Colors.teal),
+                            title: Text("Going to travel 6PM"),
+                          ),
+                          ListTile(
+                            leading: Icon(Icons.check_box_outline_blank, color: Colors.teal),
+                            title: Text("Practice Flutter Widgets at 8PM"),
+                          ),
+                          ListTile(
+                            leading: Icon(Icons.check_box_outline_blank, color: Colors.teal),
+                            title: Text("Read a book at 10PM"),
+                          ),
                         ],
                       ),
-                      const SizedBox(height: 10),
-
-                      // Task items
-                      Expanded(
-                        child: ListView(
-                          children: const [
-                            ListTile(
-                              leading: Icon(
-                                Icons.check_box_outline_blank,
-                                color: Colors.teal,
-                              ),
-                              title: Text("Learning Programming by 12PM"),
-                            ),
-                            ListTile(
-                              leading: Icon(
-                                Icons.check_box_outline_blank,
-                                color: Colors.teal,
-                              ),
-                              title: Text("Learn how to cook by 1PM"),
-                            ),
-                            ListTile(
-                              leading: Icon(
-                                Icons.check_box_outline_blank,
-                                color: Colors.teal,
-                              ),
-                              title: Text("Learn how to play at 2PM"),
-                            ),
-                            ListTile(
-                              leading: Icon(
-                                Icons.check_box_outline_blank,
-                                color: Colors.teal,
-                              ),
-                              title: Text("Have lunch at 4PM"),
-                            ),
-                            ListTile(
-                              leading: Icon(
-                                Icons.check_box_outline_blank,
-                                color: Colors.teal,
-                              ),
-                              title: Text("Going to travel 6PM"),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
               ),
             ),
